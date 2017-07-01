@@ -27,36 +27,22 @@ solution('операция', 'http://localhost:8080', (err, data) => {<br/>
   console.log(data); // http://localhost:8080/operator<br/>
 });
 
-Все страницы имеют такую структуру:
-
-<code>&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Википедия&lt;/h1&gt;
-    &lt;p&gt;Как вы знаете, вики это большая база знаний обо всем на свете.
-      Наш сайт это не настоящая &lt;a href=&quot;https://www.wikipedia.org/&quot;&gt;википедия&lt;/a&gt;,
-      но кое что мы сюда добавили).&lt;/p&gt;
-    &lt;p&gt;Например статью про &lt;a href=&quot;/operators&quot;&gt;операции&lt;/a&gt;, а так же статьи про
-      &lt;a href=&quot;/expressions&quot;&gt;выражения&lt;/a&gt; и &lt;a href=&quot;/statements&quot;&gt;инструкции&lt;/a&gt;&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+Все страницы имеют такую структуру:<br/>
+<code>&lt;html&gt;<br/>
+  &lt;head&gt;<br/>
+    &lt;title&gt;&lt;/title&gt;<br/>
+  &lt;/head&gt;<br/>
+  &lt;body&gt;<br/>
+    &lt;h1&gt;Википедия&lt;/h1&gt;<br/>
+    &lt;p&gt;Как вы знаете, вики это большая база знаний обо всем на свете.<br/>
+      Наш сайт это не настоящая &lt;a href=&quot;https://www.wikipedia.org/&quot;&gt;википедия&lt;/a&gt;,<br/>
+      но кое что мы сюда добавили).&lt;/p&gt;<br/>
+    &lt;p&gt;Например статью про &lt;a href=&quot;/operators&quot;&gt;операции&lt;/a&gt;, а так же статьи про<br/>
+      &lt;a href=&quot;/expressions&quot;&gt;выражения&lt;/a&gt; и &lt;a href=&quot;/statements&quot;&gt;инструкции&lt;/a&gt;&lt;/p&gt;<br/>
+  &lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
 </code>
 
-'<html><br/>
-  '<head><br/>
-    '<title></title><br/>
-  </head><br/>
-  <body><br/>
-    <h1>Википедия</h1><br/>
-    <p>Как вы знаете, вики это большая база знаний обо всем на свете.<br/>
-      Наш сайт это не настоящая <a href="https://www.wikipedia.org/">википедия</a>,<br/>
-      но кое что мы сюда добавили).</p><br/>
-    <p>Например статью про <a href="/operators">операции</a>, а так же статьи про<br/>
-      <a href="/expressions">выражения</a> и <a href="/statements">инструкции</a></p><br/>
-  </body><br/>
-</html><br/>
 Заголовок h1 содержит точное название темы<br/>
 Под заголовком абзац(ы) с произвольным текстом внутри которого встречаются ссылки по которым и нужно ходить
 
