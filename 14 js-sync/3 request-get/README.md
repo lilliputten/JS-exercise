@@ -29,6 +29,21 @@ solution('операция', 'http://localhost:8080', (err, data) => {<br/>
 
 Все страницы имеют такую структуру:
 
+<code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Википедия&lt;/h1&gt;
+    &lt;p&gt;Как вы знаете, вики это большая база знаний обо всем на свете.
+      Наш сайт это не настоящая &lt;a href=&quot;https://www.wikipedia.org/&quot;&gt;википедия&lt;/a&gt;,
+      но кое что мы сюда добавили).&lt;/p&gt;
+    &lt;p&gt;Например статью про &lt;a href=&quot;/operators&quot;&gt;операции&lt;/a&gt;, а так же статьи про
+      &lt;a href=&quot;/expressions&quot;&gt;выражения&lt;/a&gt; и &lt;a href=&quot;/statements&quot;&gt;инструкции&lt;/a&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+
 '<html><br/>
   '<head><br/>
     '<title></title><br/>
