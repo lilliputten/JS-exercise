@@ -29,9 +29,9 @@ solution('операция', 'http://localhost:8080', (err, data) => {<br/>
 
 Все страницы имеют такую структуру:
 
-<html><br/>
-  <head><br/>
-    <title></title><br/>
+'<html><br/>
+  '<head><br/>
+    '<title></title><br/>
   </head><br/>
   <body><br/>
     <h1>Википедия</h1><br/>
