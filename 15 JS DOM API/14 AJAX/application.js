@@ -3,11 +3,12 @@ export default () => {
   const form = document.querySelector('form');
   const input = document.querySelector('input');
   const urlpath = input.getAttribute('data-autocomplete');
-  const url = new URL(urlpath, 'http://hexlet.io');
-  
+
   input.addEventListener('keyup', async (e) => {
-    // const inpt = e.target.value;
-    // console.log("inpt= ",inpt);
+    const term = e.target.value;
+    //console.log("term= ",term);
+    const url = new URL(urlpath, window.location.origin);
+    url.searchParams.append('term', term);
     const response = await fetch(url);
     const res = await response.json();
     const ul = form.querySelector('ul');
