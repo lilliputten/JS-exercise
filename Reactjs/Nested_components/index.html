@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8" />
+    <title>Вложенные компоненты в React</title>
+	
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="container" class="container m-3"></div>
+    
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+     
+    <script type="text/babel">
+		class Box extends React.Component {
+        //const Box = React.createClass {
+            constructor(props) {
+				super(props);
+				this.state = { value: '', items: [] };
+			  }
+
+			  handleOnChange(e) {
+				e.preventDefault();
+				this.setState({ value: e.target.value });
+			  }
+
+			  handleOnClick(e) {
+				e.preventDefault();
+				const value = this.state.value;
+				const items = this.state.items;
+				items.push(value);
+				this.setState({ value: '',  items: items});
+			  }
+
+			  render() {
+				const value = this.state.value;
+				const items = this.state.items;
+
+				return (
+				  <div>
+					<form action="">
+					  <input className="text" onChange={e => this.handleOnChange(e)}
+						type="text" value={value} />
+					  <input className="submit" onClick={e => this.handleOnClick(e)}
+						type="submit" />
+					</form>
+
+					<ul className="items">
+					  {items.map(item => <li key={Math.random()}><Item value={item} /></li>)}
+					</ul>
+				  </div>
+				);
+			  }
+        }
+        class Item extends React.Component {
+		//const Item = React.createClass {
+			render() {
+				return (<div>{this.props.value}</div>);
+			}
+		} 
+        ReactDOM.render(
+            <Box />,
+            document.getElementById("container")
+        )
+    </script>
+</body>
+</html>

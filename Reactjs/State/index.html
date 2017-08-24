@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>State/ Внутреннее состояние в React</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container" class="container m-3"></div>
+     
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+     
+    <script type="text/babel">
+        class MyForm extends React.Component {
+             
+            constructor(props) {
+				super(props);
+				this.state = { pressed: false };
+			 }
+
+			handleOnClick() {
+				// BEGIN (write your solution here)
+				this.setState({ pressed: !this.state.pressed });
+				// END
+			}
+
+			render() {
+				// BEGIN (write your solution here)
+				const className = this.state.pressed ? 'btn btn-info' : 'btn btn-success';
+				// END
+
+				return (<div>
+					  <input type="submit" className={className} value="push me"
+						onClick={e => this.handleOnClick(e)} />
+					</div>);
+			}
+        }
+         
+        ReactDOM.render(
+            <MyForm />,
+            document.getElementById("container")
+        )
+    </script>
+</body>
+</html>

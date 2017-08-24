@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Props/ Передача свойств в компоненты React</title>
+</head>
+<body>
+    <div id="container"></div>
+     
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+     
+    <script type="text/babel">
+		const text = 'hello';
+        class OlList extends React.Component {
+		  render() {
+			const children = this.props.children;
+			const item = children.map(child => <li>{child}</li>);
+			return (<ol>{item}</ol>);
+		  }
+        }
+        ReactDOM.render(
+            <OlList>
+			  <a className="google" href="http://google.com">google</a>
+			  <a className="facebook" href="https://facebook.com">facebook</a>
+			</OlList>,
+            document.getElementById("container")
+        )
+    </script>
+</body>
+</html>

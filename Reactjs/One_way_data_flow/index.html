@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8" />
+    <title>Однонаправленное распространение данных в React</title>
+	
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="container" class="container m-3"></div>
+    
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+     
+    <script type="text/babel">
+		class Box extends React.Component {
+		  constructor(props) {
+			super(props);
+			this.state = { value: '', items: [] };
+		  }
+
+		  handleOnChange(e) {
+			e.preventDefault();
+			this.setState({ value: e.target.value });
+		  }
+
+		  handleOnRemove(id) {
+			const oldItems = this.state.items;
+			const items = oldItems.filter(item => item.id !== id);
+			this.setState({ items });
+		  }
+
+		  handleOnClick(e) {
+			e.preventDefault();
+			const value = this.state.value;
+			const items = this.state.items;
+			items.push({id: Math.random(), value: this.state.value});
+			this.setState({ value: '',  items: items});
+			// const item = { id: Math.random(), value: this.state.value };
+			// const newItems = [...this.state.items, item];
+
+			// this.setState({ value: '', items: newItems });
+		  }
+
+
+		  render() {
+			const value = this.state.value;
+			const items = this.state.items;
+
+			return (
+			  <div>
+				<form action="">
+				  <input className="text" type="text" value={value}
+					onChange={e => this.handleOnChange(e)} />
+				  <input className="submit" type="submit"
+					onClick={e => this.handleOnClick(e)} />
+				</form>
+
+				<div className="items">
+					{items.map(item => <Item key={item.id} item={item}
+						onRemove={id => this.handleOnRemove(id)} />
+					)}
+				</div>
+			  </div>
+			);
+		  }
+        }
+		
+        class Item extends React.Component {
+			handleOnRemove() {
+				this.props.onRemove(this.props.item.id);
+			}
+
+			render() {
+				return (<div>
+					{this.props.item.value}
+					<input type="button" className="remove" value="remove"
+					onClick={() => this.handleOnRemove()} />
+				</div>);
+			}
+		} 
+		
+        ReactDOM.render(
+            <Box />,
+            document.getElementById("container")
+        )
+    </script>
+</body>
+</html>

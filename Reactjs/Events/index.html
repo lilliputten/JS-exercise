@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8" />
+    <title>Обработка событий в React</title>
+	
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="container" class="container m-3"></div>
+    
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+     
+    <script type="text/babel">
+        class ClickButton extends React.Component {
+             
+            constructor(props) {
+				super(props);
+				this.state = { newForm: true, value: '' };
+			  }
+
+			  handleOnSubmit(e) {
+				e.preventDefault();
+				// BEGIN (write your solution here)
+				this.setState({ newForm: false });
+				// END
+			  }
+
+			  
+			  // BEGIN (write your solution here)
+			  handleOnClick(e) {
+				e.preventDefault();
+				this.setState({ newForm: true, value: '' });
+			  }
+			  // END
+
+			  handleOnChange(e) {
+				e.preventDefault();
+				// BEGIN (write your solution here)
+				this.setState({ newForm: true, value: e.target.value });
+				// END
+			  }
+
+			  render() {
+				// BEGIN (write your solution here)
+				const value = this.state.value;
+				const newForm = this.state.newForm;
+				// END
+
+				if (newForm) {
+				  return (
+					<form className="form" onSubmit={e => this.handleOnSubmit(e)}>
+					  <input className="text" type="text" value={value} onChange={e => this.handleOnChange(e)} />
+					  <input className="btn submit" type="submit" />
+					</form>
+				  );
+				}
+
+				return (
+				  <div>
+					<div className="value">{value}</div>
+					<button className="btn reset" onClick={e => this.handleOnClick(e)}>Reset</button>
+				  </div>
+				);
+			  }
+        }
+         
+        ReactDOM.render(
+            <ClickButton />,
+            document.getElementById("container")
+        )
+    </script>
+</body>
+</html>
