@@ -25,31 +25,24 @@
 
 			  handleOnSubmit(e) {
 				e.preventDefault();
-				// BEGIN (write your solution here)
 				this.setState({ newForm: false });
-				// END
 			  }
 
 			  
-			  // BEGIN (write your solution here)
 			  handleOnClick(e) {
 				e.preventDefault();
 				this.setState({ newForm: true, value: '' });
 			  }
-			  // END
 
 			  handleOnChange(e) {
 				e.preventDefault();
-				// BEGIN (write your solution here)
 				this.setState({ newForm: true, value: e.target.value });
-				// END
 			  }
 
 			  render() {
-				// BEGIN (write your solution here)
 				const value = this.state.value;
 				const newForm = this.state.newForm;
-				// END
+
 
 				if (newForm) {
 				  return (

@@ -21,15 +21,11 @@
 			 }
 
 			handleOnClick() {
-				// BEGIN (write your solution here)
 				this.setState({ pressed: !this.state.pressed });
-				// END
 			}
 
 			render() {
-				// BEGIN (write your solution here)
 				const className = this.state.pressed ? 'btn btn-info' : 'btn btn-success';
-				// END
 
 				return (<div>
 					  <input type="submit" className={className} value="push me"
