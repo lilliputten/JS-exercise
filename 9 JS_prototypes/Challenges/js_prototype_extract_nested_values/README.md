@@ -24,4 +24,3 @@ obj.hash('person.name.key'); // undefined<br/>
 obj.hash('person.history.homeStreet'); // undefined<br/>
 obj.hash('person.animal.pet.needNoseAntEater'); // undefined<br/>
 
-

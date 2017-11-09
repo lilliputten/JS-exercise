@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lilliputten/JS-exercise/issues"
   },
-  "homepage": "https://github.com/lilliputten/JS-exercise#readme"
+  "homepage": "https://github.com/lilliputten/JS-exercise#readme",
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  }
 }
